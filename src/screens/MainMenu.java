@@ -1,5 +1,6 @@
 package screens;
 
+import player.Song;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -20,7 +21,7 @@ public class MainMenu extends VBox {
     ImageView currentlyPlayingImage = new ImageView();
 
     /**Will display any info on the song that is avaliable*/
-    Label currentlyPlayingInfo = new Label("This will display any info on the song");
+    Label currentlyPlayingInfo = new Label();
 
     /**Just shows that this is the main menu*/
     Label menuTitle = new Label("Main Menu");
@@ -105,6 +106,9 @@ public class MainMenu extends VBox {
 
         Image dummyAlbumCover = new Image(getClass().getResourceAsStream("Images/display.png"));
         currentlyPlayingImage.setImage(dummyAlbumCover);
+        
+        currentlyPlayingInfo.setText("Now Playing: None");
+        
         //Add all the components to the currently playing VBox*/
         currentlyPlaying.getChildren().addAll(currentlyPlayingImage, currentlyPlayingInfo, songQueue);
 
@@ -112,6 +116,13 @@ public class MainMenu extends VBox {
         //Temp css color change to currently playing Image to see it on the screen
         currentlyPlayingImage.setStyle("-fx-background-color: #993399;");
 
+    }
+    
+    public void setCurrentSong(Song s){
+    	currentlyPlayingImage.setImage(s.getAlbumArt());
+    	
+    	currentlyPlayingInfo.setText("Now Playing: " 
+    			+ s.getArtist() + " - " + s.getSongName());
     }
 
 

@@ -1,5 +1,6 @@
 package player;
 
+import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -9,7 +10,9 @@ public class Song {
 	private String artist;
 	private String songName;
 	
-	public Song(String filename, SongQueue parent){
+	private Image art;
+	
+	public Song(String filename, SongQueue parent, Image albumArt){
 		// Save files as Artist-Song.mp3 so we can get Artist/Song Name
 		// to display on jukebox
 		int dashIndex = filename.indexOf('-');
@@ -19,6 +22,12 @@ public class Song {
 		
 		player = new MediaPlayer(new Media(filename));
 		player.setOnEndOfMedia(parent);
+		
+		art = albumArt;
+	}
+	
+	public Image getAlbumArt(){
+		return art;
 	}
 	
 	public String getArtist(){

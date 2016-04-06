@@ -26,6 +26,9 @@ public class SongQueue implements Runnable {
 	private void playNextSong(){
 		current = queue.removeFirst();
 		
+		// TODO access MainMenu and modify now playing
+		// mainMenu.setCurrentSong(current);
+		
 		play();
 	}
 	
@@ -74,6 +77,6 @@ public class SongQueue implements Runnable {
 
 	@Override
 	public void run() {
-		if(!ApplicationSettings.isPaused()) playNextSong();
+		if (!paused) playNextSong();
 	}
 }
