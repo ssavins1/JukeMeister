@@ -1,26 +1,38 @@
 package player;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 import utils.ApplicationSettings;
 
 public class SongQueue implements Runnable {
-	private Stack<Song> queue;
+	private Deque<Song> queue;
 	
 	private Song current;
+	private boolean paused;
 	
 	public SongQueue(){
-		queue = new Stack<Song>();
+		queue = new ArrayDeque<Song>();
 	}
 	
-	public void addSong(Song s){
-		queue.add(s);
+	public void addSongToEndOfQueue(Song s){
+		queue.addLast(s);
+	}
+	
+	public void addSongToBeginningOfQueue(Song s){
+		queue.addFirst(s);
 	}
 	
 	private void playNextSong(){
-		current = queue.pop();
+		current = queue.removeFirst();
 		
 		play();
+	}
+	
+	public void skip(){
+		stop();
+		
+		playNextSong();
 	}
 	
 	public void play(){
@@ -34,9 +46,34 @@ public class SongQueue implements Runnable {
 	public void stop(){
 		current.stop();
 	}
+	
+	public boolean isEmpty(){
+		return queue.isEmpty();
+	}
+	
+	public boolean isPaused(){
+		return paused;
+	}
+	
+	public boolean togglePaused(){
+		if(paused == false){
+			pause();
+			paused = true;
+		} else {
+			play();
+			paused = false;
+		}
+		
+		return paused;
+	}
+	
+	public void stopPlaying(){
+		stop();
+		paused = true;
+	}
 
 	@Override
 	public void run() {
-		if(!ApplicationSettings.paused) playNextSong();
+		if(!ApplicationSettings.isPaused()) playNextSong();
 	}
 }
