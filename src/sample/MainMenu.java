@@ -71,13 +71,13 @@ public class MainMenu extends BorderPane {
 
 
     public MainMenu() {
-        setTopComponenets();
+        setTopComponents();
         setLeftComponents();
-        setCenterComponenets();
-        setRightComponenets();
+        setCenterComponents();
+        setRightComponents();
     }
 
-    private void setTopComponenets(){
+    private void setTopComponents(){
         titleAndBanner.getChildren().addAll(menuTitle, banner);
         titleAndBanner.setAlignment(Pos.CENTER);
         //Temp cs style change to allow me to see the width of the banner and title*/
@@ -85,7 +85,7 @@ public class MainMenu extends BorderPane {
         this.setTop(titleAndBanner);
     }
 
-    private void setCenterComponenets() {
+    private void setCenterComponents() {
         popularAndBrowse.getChildren().addAll(popularSelections, browseButton);
         popularAndBrowse.setPrefHeight(this.getHeight());
         GridPane.setHgrow(popularSelections, Priority.ALWAYS);
@@ -100,7 +100,7 @@ public class MainMenu extends BorderPane {
 
     }
 
-    private void setRightComponenets(){
+    private void setRightComponents(){
         //2D rectangle that serves as the view size for the currently playing image
         Rectangle2D viewportRect = new Rectangle2D(100, 100, 100, 100);
         //change the viewport to the rectangle
