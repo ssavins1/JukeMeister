@@ -1,6 +1,5 @@
 package screens;
 
-import player.Song;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -11,6 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import library.Song;
 
 /**
  * Created by user on 4/2/2016.
@@ -119,10 +119,10 @@ public class MainMenu extends VBox {
     }
     
     public void setCurrentSong(Song s){
-    	currentlyPlayingImage.setImage(s.getAlbumArt());
+    	currentlyPlayingImage.setImage(new Image(s.getImageFileName()));
     	
     	currentlyPlayingInfo.setText("Now Playing: " 
-    			+ s.getArtist() + " - " + s.getSongName());
+    			+ s.getArtist() + " - " + s.getName());
     }
 
 

@@ -3,6 +3,7 @@ package player;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+import library.Song;
 import utils.ApplicationSettings;
 
 public class SongQueue implements Runnable {
