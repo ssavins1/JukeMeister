@@ -13,7 +13,7 @@ public class AdminAddSong extends BorderPane {
     Label title = new Label("Add Song");
 
     Button addPic = new Button("Add Picture");
-    Button browse
+    Button browse = new Button("Browse for Song");
     Label titleLabel = new Label("Title: ");
     TextField titleField = new TextField();
     HBox titleBox = new HBox();
