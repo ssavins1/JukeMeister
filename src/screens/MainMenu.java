@@ -1,16 +1,13 @@
-package sample;
+package screens;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-
+import library.Song;
 
 /**
  * Created by user on 4/2/2016.
@@ -22,10 +19,8 @@ public class MainMenu extends BorderPane {
      */
     ImageView currentlyPlayingImage = new ImageView();
 
-    /**
-     * Will display any info on the song that is avaliable
-     */
-    Label currentlyPlayingInfo = new Label("This will display any info on the song");
+    /**Will display any info on the song that is avaliable*/
+    Label currentlyPlayingInfo = new Label();
 
     /**
      * Just shows that this is the main menu
@@ -54,6 +49,8 @@ public class MainMenu extends BorderPane {
      */
     BorderPane content = new BorderPane();
 
+    /**Holds the admin button, browseAndPopular, and currently playing in that order*/
+    HBox content = new HBox();
 
     /**
      * Should display the browse songs screen
@@ -110,11 +107,27 @@ public class MainMenu extends BorderPane {
         currentlyPlayingImage.setCache(true);
         Image dummyAlbumCover = new Image(getClass().getResourceAsStream("Images/display.png"));
         currentlyPlayingImage.setImage(dummyAlbumCover);
+        
+        currentlyPlayingInfo.setText("Now Playing: None");
+        
+        //Add all the components to the currently playing VBox*/
+        currentlyPlayingInfo.getChildren().addAll(currentlyPlayingImage, currentlyPlayingInfo, songQueue);
 
         currentlyPlayingPortion.setAlignment(Pos.CENTER);
         currentlyPlayingPortion.getChildren().addAll(currentlyPlayingImage, currentlyPlayingInfo, songQueue);
         currentlyPlayingPortion.setPadding(new Insets(5, 15, 5, 5));
         this.setRight(currentlyPlayingPortion);
+        currentlyPlayingInfo.setPrefHeight(browseAndPopular.getHeight());
+        //Temp css color change to currently playing Image to see it on the screen
+        currentlyPlayingImage.setStyle("-fx-background-color: #993399;");
+
+    }
+    
+    public void setCurrentSong(Song s){
+    	currentlyPlayingImage.setImage(new Image(s.getImageFileName()));
+    	
+    	currentlyPlayingInfo.setText("Now Playing: " 
+    			+ s.getArtist() + " - " + s.getName());
     }
 
 

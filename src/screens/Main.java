@@ -1,4 +1,4 @@
-package sample;
+package screens;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
