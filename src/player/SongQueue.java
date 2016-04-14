@@ -40,15 +40,15 @@ public class SongQueue implements Runnable {
 	}
 	
 	public void play(){
-		current.play();
+		//current.play();
 	}
 	
 	public void pause(){
-		current.pause();
+		//current.pause();
 	}
 	
 	public void stop(){
-		current.stop();
+		//current.stop();
 	}
 	
 	public boolean isEmpty(){

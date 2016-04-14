@@ -68,7 +68,6 @@ public class AdminAddSong extends BorderPane implements JukeScreenIF{
     }
 
     @Override
-    public Parent update() {
-        return null;
+    public void update() {
     }
 }
