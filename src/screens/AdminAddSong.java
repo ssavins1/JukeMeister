@@ -1,6 +1,7 @@
 package screens;
 
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,7 +13,7 @@ import javafx.scene.layout.VBox;
 /**
  * Created by user on 4/13/2016.
  */
-public class AdminAddSong extends BorderPane {
+public class AdminAddSong extends BorderPane implements JukeScreenIF{
     Label title = new Label("Add Song");
     HBox screenTitleBox = new HBox();
 
@@ -61,4 +62,13 @@ public class AdminAddSong extends BorderPane {
 
     }
 
+    @Override
+    public Parent getScreen() {
+        return null;
+    }
+
+    @Override
+    public Parent update() {
+        return null;
+    }
 }
