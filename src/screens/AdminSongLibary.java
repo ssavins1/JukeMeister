@@ -1,6 +1,7 @@
 package screens;
 
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -11,7 +12,7 @@ import javafx.scene.text.TextAlignment;
 /**
  * Created by user on 4/11/2016.
  */
-public class AdminSongLibary extends BorderPane {
+public class AdminSongLibary extends BorderPane implements JukeScreenIF {
 
 
     Label title = new Label("Song Libary");
@@ -38,4 +39,13 @@ public class AdminSongLibary extends BorderPane {
 
     }
 
+    @Override
+    public Parent getScreen() {
+        return null;
+    }
+
+    @Override
+    public Parent update() {
+        return null;
+    }
 }
