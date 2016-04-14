@@ -2,6 +2,7 @@ package screens;
 
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,7 +13,7 @@ import library.Song;
 /**
  * Created by user on 4/2/2016.
  */
-public class MainMenu extends BorderPane {
+public class MainMenu extends BorderPane implements JukeScreenIF {
 
     /**
      * Displays the album art of the currently playing song
@@ -133,5 +134,15 @@ public class MainMenu extends BorderPane {
     private void setLeftComponents() {
         adminButton.setPadding(new Insets(5, 5, 5, 5));
         this.setLeft(adminButton);
+    }
+
+    @Override
+    public Parent getScreen() {
+        return null;
+    }
+
+    @Override
+    public Parent update() {
+        return null;
     }
 }
