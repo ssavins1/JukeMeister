@@ -19,7 +19,9 @@ public class MainMenu extends BorderPane {
      */
     ImageView currentlyPlayingImage = new ImageView();
 
-    /**Will display any info on the song that is avaliable*/
+    /**
+     * Will display any info on the song that is avaliable
+     */
     Label currentlyPlayingInfo = new Label();
 
     /**
@@ -49,9 +51,6 @@ public class MainMenu extends BorderPane {
      */
     BorderPane content = new BorderPane();
 
-    /**Holds the admin button, browseAndPopular, and currently playing in that order*/
-    HBox content = new HBox();
-
     /**
      * Should display the browse songs screen
      */
@@ -74,7 +73,7 @@ public class MainMenu extends BorderPane {
         setRightComponents();
     }
 
-    private void setTopComponents(){
+    private void setTopComponents() {
         titleAndBanner.getChildren().addAll(menuTitle, banner);
         titleAndBanner.setAlignment(Pos.CENTER);
         //Temp cs style change to allow me to see the width of the banner and title*/
@@ -89,7 +88,7 @@ public class MainMenu extends BorderPane {
         GridPane.setVgrow(browseButton, Priority.ALWAYS);
         browseButton.setMinWidth(popularSelections.getWidth());
         popularSelections.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        popularSelections.setPadding(new Insets(5,5,5,5));
+        popularSelections.setPadding(new Insets(5, 5, 5, 5));
         popularAndBrowse.setPadding(new Insets(5, 5, 5, 5));
         popularAndBrowse.setAlignment(Pos.CENTER);
 
@@ -97,7 +96,7 @@ public class MainMenu extends BorderPane {
 
     }
 
-    private void setRightComponents(){
+    private void setRightComponents() {
         //2D rectangle that serves as the view size for the currently playing image
         Rectangle2D viewportRect = new Rectangle2D(100, 100, 100, 100);
         //change the viewport to the rectangle
@@ -107,31 +106,31 @@ public class MainMenu extends BorderPane {
         currentlyPlayingImage.setCache(true);
         Image dummyAlbumCover = new Image(getClass().getResourceAsStream("Images/display.png"));
         currentlyPlayingImage.setImage(dummyAlbumCover);
-        
+
         currentlyPlayingInfo.setText("Now Playing: None");
-        
+
         //Add all the components to the currently playing VBox*/
-        currentlyPlayingInfo.getChildren().addAll(currentlyPlayingImage, currentlyPlayingInfo, songQueue);
+        currentlyPlayingPortion.getChildren().addAll(currentlyPlayingImage, currentlyPlayingInfo, songQueue);
 
         currentlyPlayingPortion.setAlignment(Pos.CENTER);
         currentlyPlayingPortion.getChildren().addAll(currentlyPlayingImage, currentlyPlayingInfo, songQueue);
         currentlyPlayingPortion.setPadding(new Insets(5, 15, 5, 5));
         this.setRight(currentlyPlayingPortion);
-        currentlyPlayingInfo.setPrefHeight(browseAndPopular.getHeight());
+        //currentlyPlayingInfo.setPrefHeight(browseAndPopular.getHeight());
         //Temp css color change to currently playing Image to see it on the screen
         currentlyPlayingImage.setStyle("-fx-background-color: #993399;");
 
     }
-    
-    public void setCurrentSong(Song s){
-    	currentlyPlayingImage.setImage(new Image(s.getImageFileName()));
-    	
-    	currentlyPlayingInfo.setText("Now Playing: " 
-    			+ s.getArtist() + " - " + s.getName());
+
+    public void setCurrentSong(Song s) {
+        currentlyPlayingImage.setImage(new Image(s.getImageFileName()));
+
+        currentlyPlayingInfo.setText("Now Playing: "
+                + s.getArtist() + " - " + s.getName());
     }
 
 
-    private void setLeftComponents(){
+    private void setLeftComponents() {
         adminButton.setPadding(new Insets(5, 5, 5, 5));
         this.setLeft(adminButton);
     }
