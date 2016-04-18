@@ -17,6 +17,8 @@ public class AdminMenu extends BorderPane implements JukeScreenIF {
 
     int buttonHeight = 25;
     int backPadding = 10;
+    double optionsMaxWidth = 250;
+
 
     Label title = new Label("Admin Menu");
     HBox titleBox = new HBox();
@@ -51,7 +53,7 @@ public class AdminMenu extends BorderPane implements JukeScreenIF {
         blank.setPrefSize(back.getWidth()+backPadding, back.getHeight()+backPadding);
         titleBox.setAlignment(Pos.CENTER);
         titleBox.getChildren().add(title);
-
+        options.setMaxWidth(optionsMaxWidth);
         options.getChildren().addAll(stats, songLibary, importExport, creditControl, misc);
         center.setAlignment(Pos.CENTER);
         center.getChildren().add(options);

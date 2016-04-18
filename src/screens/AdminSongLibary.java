@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 
 /**
- * Created by user on 4/11/2016.
+ * Created by Samuel Avins on 4/11/2016.
  */
 public class AdminSongLibary extends BorderPane implements JukeScreenIF {
 
@@ -27,17 +27,43 @@ public class AdminSongLibary extends BorderPane implements JukeScreenIF {
     Button back = new Button("<--");
 
     VBox options = new VBox(15);
+    VBox centerInner = new VBox();
+    HBox center = new HBox();
 
-    public AdminSongLibary(){
+    public AdminSongLibary() {
+        setTitleBar();
+        setCenter();
+    }
+
+    /**========================================
+     *  Sets the menu name at the top center of
+     *  the screen.
+     *========================================
+     */
+    public void setTitleBar(){
         titleBox.setAlignment(Pos.CENTER);
         titleBox.getChildren().add(title);
         this.setTop(titleBox);
-        options.getChildren().addAll(addSong, addAlbum, removeSong);
-        options.setAlignment(Pos.CENTER);
-        this.setCenter(options);
-        this.setLeft(back);
-
     }
+
+    /**========================================
+     *  Sets all the user input fields and
+     *  buttons to the center of the screen.
+     *========================================
+     */
+    public void setCenter(){
+        removeSong.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        addSong.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        addAlbum.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        options.getChildren().addAll(addSong, addAlbum, removeSong);
+        centerInner.getChildren().add(options);
+        centerInner.setAlignment(Pos.CENTER);
+        center.getChildren().add(centerInner);
+        center.setAlignment(Pos.CENTER);
+        this.setCenter(center);
+        this.setLeft(back);
+    }
+
 
     @Override
     public Parent getScreen() {
