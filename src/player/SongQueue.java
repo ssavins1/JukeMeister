@@ -3,13 +3,14 @@ package player;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import library.Song;
-import utils.ApplicationSettings;
 
 public class SongQueue implements Runnable {
 	private Deque<Song> queue;
 	
-	private Song current;
+	private MediaPlayer current;
 	private boolean paused;
 	
 	public SongQueue(){
@@ -25,7 +26,8 @@ public class SongQueue implements Runnable {
 	}
 	
 	private void playNextSong(){
-		current = queue.removeFirst();
+		current = new MediaPlayer(
+				new Media(queue.removeFirst().getFilename()));
 		
 		// TODO access MainMenu and modify now playing
 		// mainMenu.setCurrentSong(current);
@@ -40,15 +42,15 @@ public class SongQueue implements Runnable {
 	}
 	
 	public void play(){
-		//current.play();
+		current.play();
 	}
 	
 	public void pause(){
-		//current.pause();
+		current.pause();
 	}
 	
 	public void stop(){
-		//current.stop();
+		current.stop();
 	}
 	
 	public boolean isEmpty(){

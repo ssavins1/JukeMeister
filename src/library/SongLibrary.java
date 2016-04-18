@@ -10,15 +10,8 @@ public class SongLibrary {
 		songs = new ArrayList<Song>();
 	}
 	
-	public void addSong(String filename){
-		// Save files as Artist-Song.mp3 so we can get Artist/Song Name
-		// to display on jukebox
-		int dashIndex = filename.indexOf('-');
-				
-		String artist = filename.substring(0, dashIndex);
-		String name = filename.substring(dashIndex + 1, filename.length());
-		
-		songs.add(new Song(artist, name));
+	public void addSong(Song s){
+		songs.add(s);
 	}
 	
 	public List<Song> getSongNamesBeginningWith(char c){

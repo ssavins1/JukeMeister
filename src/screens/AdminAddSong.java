@@ -1,14 +1,22 @@
 package screens;
 
+import java.io.File;
+
+import utils.ApplicationSettings;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import library.Song;
 
 /**
  * Created by Samuel Avins on 4/13/2016.
@@ -22,8 +30,13 @@ public class AdminAddSong extends BorderPane implements JukeScreenIF{
 
     /**Search for a picture to go with the album*/
     Button addPic = new Button("Add Picture");
+    Label imageFilename = new Label("Selected Image File: None");
+    File imageFile = null;
+    
     /**Search for a song to add to the databse*/
     Button browse = new Button("Browse for Song");
+    Label browseFilename = new Label("Selected: None");
+    File selectedFile = null;
 
     ImageView songArt = new ImageView("sample/images/display.png");
 
@@ -42,13 +55,6 @@ public class AdminAddSong extends BorderPane implements JukeScreenIF{
     TextField yearField = new TextField();
     HBox yearBox = new HBox();
 
-    //Sam- I don't think we actually need this. The media object should just play to completion regardless.
-    //so this field seems kinda redundant
-    /**All the components to make the user input field for how long the song plays*/
-    Label timeLabel = new Label("Playing Time: ");
-    TextField timeField = new TextField();
-    HBox timeBox = new HBox();
-
     /**Button that will add the song to the embedded database*/
     Button addSong = new Button("Add Song");
 
@@ -66,6 +72,9 @@ public class AdminAddSong extends BorderPane implements JukeScreenIF{
         setTitleBar();
         setCenter();
         setBackButton();
+        setAddSongButton();
+        setBrowseButton();
+        setAddPictureButton();
     }
 
     /**========================================
@@ -89,9 +98,8 @@ public class AdminAddSong extends BorderPane implements JukeScreenIF{
         titleBox.getChildren().addAll(titleLabel, titleField);
         artistBox.getChildren().addAll(artistLabel, artistField);
         yearBox.getChildren().addAll(yearLabel, yearField);
-        timeBox.getChildren().addAll(timeLabel, timeField);
-        content.getChildren().addAll(imageCenter, addPic, browse, titleBox,
-                artistBox, yearBox, timeBox, addSong);
+        content.getChildren().addAll(imageCenter, addPic, imageFilename, browse, 
+        		browseFilename, titleBox, artistBox, yearBox, addSong);
 
         songArt.setPreserveRatio(true);
         songArt.setFitWidth(250.0);
@@ -110,9 +118,74 @@ public class AdminAddSong extends BorderPane implements JukeScreenIF{
 
         this.setCenter(center);
     }
+    
+    private void setAddPictureButton(){
+    	addPic.setOnAction(new EventHandler<ActionEvent>(){
+    		@Override
+    		public void handle(ActionEvent e){
+    			imageFile = new FileChooser().showOpenDialog(null);
+    			if(imageFile != null){
+    				imageFilename.setText("Selected Image File: "
+    					+ imageFile.getName());
+    			} else {
+    				imageFilename.setText("Selected Image File: None");
+    			}	
+    		}
+    	});
+    }
+    
+    private void setBrowseButton(){
+    	browse.setOnAction(new EventHandler<ActionEvent>(){
+    		@Override
+    		public void handle(ActionEvent e){
+    			selectedFile = new FileChooser().showOpenDialog(null);
+    			if(selectedFile != null){
+    				browseFilename.setText("Selected: "
+    					+ selectedFile.getName());
+    			} else {
+    				browseFilename.setText("Selected: None");
+    			}	
+    		}
+    	});
+    }
+    
+    private void setAddSongButton(){
+    	addSong.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent e) {
+				String artist = artistField.getText();
+				String title = titleField.getText();
+				
+				int year;
+				
+				try {
+					year = Integer.parseInt(yearField.getText());
+				} catch (NumberFormatException ex){
+					Dialog<String> dialog = new Dialog<String>();
+					
+					dialog.setContentText("Error entering year released: "
+							+ ex.getMessage());
+					
+					dialog.showAndWait();
+					return;
+				}
+				
+				Song s = new Song(artist, title, year, selectedFile.getName());
+				
+				ApplicationSettings.getLibraryInstance().addSong(s);
+			}
+    	});
+    }
 
-    public void setBackButton(){
+    private void setBackButton(){
         this.setLeft(back);
+        
+        back.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Go to AdminMenu
+			}
+        });
     }
 
     @Override
