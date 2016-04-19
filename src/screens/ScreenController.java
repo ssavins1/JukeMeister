@@ -1,6 +1,7 @@
 package screens;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 
 import java.util.Stack;
 
@@ -9,7 +10,7 @@ import java.util.Stack;
  */
 public class ScreenController {
 
-    static private JukeScreen main = new JukeScreen();
+    static private StackPane main = new StackPane();
     static private Stack<JukeScreen> screensStack = new Stack<JukeScreen>();
     static ScreenController singleton;
 
@@ -54,7 +55,7 @@ public class ScreenController {
      * Set up the mainScreen, and set it to the mai nmenu
      */
     static private void initializeScreenController(){
-        setScreen(Screens.ADMIN_MENU);
+        setScreen(Screens.MAIN_MENU);
     }
 
     /**
@@ -74,15 +75,17 @@ public class ScreenController {
      *          screen method so it can be added to the stack.
      */
     static void setScreen(Screens s){
-        main = s.getScreen();
+        main.getChildren().removeAll(main.getChildren());
+        main.getChildren().add(screensStack.push(s.getScreen()));
     }
 
     /**
      * Should go back to the previous screen when called
      */
     static public void backOneScreen(){
-        main.getChildren().removeAll();
-        main.getChildren().add(screensStack.pop());
+        screensStack.pop();
+        main.getChildren().removeAll(main.getChildren());
+        main.getChildren().add(screensStack.lastElement());
     }
 
 }
