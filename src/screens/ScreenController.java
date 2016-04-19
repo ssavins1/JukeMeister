@@ -22,7 +22,7 @@ public class ScreenController {
         ADMIN_ADD_ALBUM(new AdminAddAlbum()),
         ADMIN_CREDIT_CONTROL(new AdminCreditControl()),
         ADMIN_REMOVE_SONG(new AdminRemoveSong()),
-        IMPORT_AND_EXPORT(new MainMenu()),
+        IMPORT_AND_EXPORT(new ImportExport()),
         BROWSE_SONGS(new BrowseSongs()),
         SELECT_SONGS(new AdminSelectSong()),
         ADMIN_STATS(new AdminStats()),
