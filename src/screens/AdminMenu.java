@@ -1,11 +1,12 @@
 package screens;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -13,7 +14,7 @@ import javafx.scene.layout.VBox;
 /**
  * Created by user on 4/11/2016.
  */
-public class AdminMenu extends BorderPane implements JukeScreenIF {
+public class AdminMenu extends JukeScreen{
 
     int buttonHeight = 25;
     int backPadding = 10;
@@ -42,7 +43,7 @@ public class AdminMenu extends BorderPane implements JukeScreenIF {
 
 
     public AdminMenu() {
-
+        setButtonsUp();
         importExport.setPrefSize(Double.MAX_VALUE, buttonHeight);
         creditControl.setPrefSize(Double.MAX_VALUE, buttonHeight);
         songLibary.setPrefSize(Double.MAX_VALUE, buttonHeight);
@@ -61,6 +62,45 @@ public class AdminMenu extends BorderPane implements JukeScreenIF {
         this.setLeft(backBox);
         this.setRight(blank);
         this.setTop(titleBox);
+    }
+
+    private void setButtonsUp(){
+        stats.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.setScreen(ScreenController.Screens.ADMIN_STATS);
+            }
+        });
+        songLibary.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.setScreen(ScreenController.Screens.ADMIN_SONG_LIBARY);
+            }
+        });
+        misc.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.setScreen(ScreenController.Screens.ADMIN_OTHER_FEATURES);
+            }
+        });
+        creditControl.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.setScreen(ScreenController.Screens.ADMIN_CREDIT_CONTROL);
+            }
+        });
+        importExport.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.setScreen(ScreenController.Screens.IMPORT_AND_EXPORT);
+            }
+        });
+        back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.backOneScreen();
+            }
+        });
     }
 
     @Override

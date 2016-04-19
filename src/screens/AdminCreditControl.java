@@ -6,14 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
  * Created by user on 4/11/2016.
  */
-public class AdminCreditControl extends BorderPane implements JukeScreenIF {
+public class AdminCreditControl extends JukeScreen {
 
     /**contains the title for the menu, and the HBox that centers it*/
     Label title = new Label("Credit Control");

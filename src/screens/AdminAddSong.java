@@ -1,27 +1,25 @@
 package screens;
 
-import java.io.File;
-
-import utils.ApplicationSettings;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-import library.Song;
+
+import java.io.File;
+
+//import javafx.scene.control.Dialog;
 
 /**
  * Created by Samuel Avins on 4/13/2016.
  */
-public class AdminAddSong extends BorderPane implements JukeScreenIF{
+public class AdminAddSong extends JukeScreen{
 
     /**Label for the menu name*/
     Label title = new Label("Add Song");
@@ -72,7 +70,7 @@ public class AdminAddSong extends BorderPane implements JukeScreenIF{
         setTitleBar();
         setCenter();
         setBackButton();
-        setAddSongButton();
+        //setAddSongButton();
         setBrowseButton();
         setAddPictureButton();
     }
@@ -149,33 +147,33 @@ public class AdminAddSong extends BorderPane implements JukeScreenIF{
     	});
     }
     
-    private void setAddSongButton(){
-    	addSong.setOnAction(new EventHandler<ActionEvent>(){
-			@Override
-			public void handle(ActionEvent e) {
-				String artist = artistField.getText();
-				String title = titleField.getText();
-				
-				int year;
-				
-				try {
-					year = Integer.parseInt(yearField.getText());
-				} catch (NumberFormatException ex){
-					Dialog<String> dialog = new Dialog<String>();
-					
-					dialog.setContentText("Error entering year released: "
-							+ ex.getMessage());
-					
-					dialog.showAndWait();
-					return;
-				}
-				
-				Song s = new Song(artist, title, year, selectedFile.getName());
-				
-				ApplicationSettings.getLibraryInstance().addSong(s);
-			}
-    	});
-    }
+//    private void setAddSongButton(){
+//    	addSong.setOnAction(new EventHandler<ActionEvent>(){
+//			@Override
+//			public void handle(ActionEvent e) {
+//				String artist = artistField.getText();
+//				String title = titleField.getText();
+//
+//				int year;
+//
+//				try {
+//					year = Integer.parseInt(yearField.getText());
+//				} catch (NumberFormatException ex){
+//					Dialog<String> dialog = new Dialog<String>();
+//
+//					dialog.setContentText("Error entering year released: "
+//							+ ex.getMessage());
+//
+//					dialog.showAndWait();
+//					return;
+//				}
+//
+//				Song s = new Song(artist, title, year, selectedFile.getName());
+//
+//				ApplicationSettings.getLibraryInstance().addSong(s);
+//			}
+//    	});
+//    }
 
     private void setBackButton(){
         this.setLeft(back);

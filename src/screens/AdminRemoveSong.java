@@ -5,7 +5,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -14,7 +13,7 @@ import javafx.scene.layout.VBox;
 /**
  * Created by user on 4/14/2016.
  */
-public class AdminRemoveSong extends BorderPane implements JukeScreenIF {
+public class AdminRemoveSong extends JukeScreen{
 
     /**Label for the menu name*/
     Label title = new Label("Remove Song");

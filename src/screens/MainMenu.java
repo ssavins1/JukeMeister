@@ -1,19 +1,26 @@
 package screens;
 
-import javafx.geometry.Pos;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import javafx.geometry.Rectangle2D;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import library.Song;
 
 /**
  * Created by user on 4/2/2016.
  */
-public class MainMenu extends BorderPane implements JukeScreenIF {
+public class MainMenu extends JukeScreen{
 
     /**
      * Displays the album art of the currently playing song
@@ -44,7 +51,7 @@ public class MainMenu extends BorderPane implements JukeScreenIF {
      * A button that should prompt the user to enter a admin password
      * and if it is a valid password, switch the screen to the admin menus.
      */
-    Image adminCog = new Image(getClass().getResourceAsStream("Images/cogs_icon.png"));
+    Image adminCog = new Image("sample/images/cogs_icon.png");
     Button adminButton = new Button("", new ImageView(adminCog));
 
     /**
@@ -105,13 +112,11 @@ public class MainMenu extends BorderPane implements JukeScreenIF {
         currentlyPlayingImage.setPreserveRatio(true);
         currentlyPlayingImage.setSmooth(true);
         currentlyPlayingImage.setCache(true);
-        Image dummyAlbumCover = new Image(getClass().getResourceAsStream("Images/display.png"));
+        Image dummyAlbumCover = new Image("sample/images/display.png");
         currentlyPlayingImage.setImage(dummyAlbumCover);
 
         currentlyPlayingInfo.setText("Now Playing: None");
 
-        //Add all the components to the currently playing VBox*/
-        currentlyPlayingPortion.getChildren().addAll(currentlyPlayingImage, currentlyPlayingInfo, songQueue);
 
         currentlyPlayingPortion.setAlignment(Pos.CENTER);
         currentlyPlayingPortion.getChildren().addAll(currentlyPlayingImage, currentlyPlayingInfo, songQueue);
@@ -133,6 +138,12 @@ public class MainMenu extends BorderPane implements JukeScreenIF {
 
     private void setLeftComponents() {
         adminButton.setPadding(new Insets(5, 5, 5, 5));
+        adminButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.setScreen(ScreenController.Screens.ADMIN_MENU);
+            }
+        });
         this.setLeft(adminButton);
     }
 
@@ -143,6 +154,6 @@ public class MainMenu extends BorderPane implements JukeScreenIF {
 
     @Override
     public void update() {
-        
+
     }
 }
