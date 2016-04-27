@@ -1,5 +1,7 @@
 package screens;
 
+import org.junit.Test;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -16,6 +18,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import library.Song;
+import static org.junit.Assert.*;
 
 /**
  * Created by user on 4/2/2016.
@@ -72,7 +75,6 @@ public class MainMenu extends JukeScreen{
     VBox titleAndBanner = new VBox();
     VBox popularAndBrowse = new VBox();
     VBox currentlyPlayingPortion = new VBox();
-
 
     public MainMenu() {
         setTopComponents();

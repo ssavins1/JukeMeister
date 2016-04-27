@@ -3,11 +3,14 @@ package screens;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
+import org.junit.Test;
+
 /**
  * Created by user on 4/19/2016.
  */
 public class JukeScreen extends BorderPane implements JukeScreenIF {
     @Override
+    @Test(timeout = 1000)
     public Parent getScreen() {
         return this;
     }

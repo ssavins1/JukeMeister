@@ -1,5 +1,6 @@
 package library;
 
+
 public class Song {
 	private String artist;
 	private String name;
@@ -13,7 +14,7 @@ public class Song {
 		this.year = year;
 		this.imageFilename = imageFilename;
 	}
-	
+
 	public String getImageFilename(){
 		return imageFilename;
 	}
@@ -36,13 +37,5 @@ public class Song {
 	
 	public String getName(){
 		return name;
-	}
-	
-	public String getFilename(){
-		return artist + "-" + name + ".mp3";
-	}
-	
-	public String getImageFileName(){
-		return artist + "-" + name + ".jpg";
 	}
 }

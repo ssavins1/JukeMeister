@@ -1,5 +1,7 @@
 package screens;
 
+import org.junit.Test;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -9,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import static org.junit.Assert.*;
 
 
 /**
@@ -41,7 +44,6 @@ public class AdminMenu extends JukeScreen{
     VBox center = new VBox();
     VBox options = new VBox(25);
 
-
     public AdminMenu() {
         setButtonsUp();
         importExport.setPrefSize(Double.MAX_VALUE, buttonHeight);
@@ -64,6 +66,7 @@ public class AdminMenu extends JukeScreen{
         this.setTop(titleBox);
     }
 
+    @Test(timeout = 1000)
     private void setButtonsUp(){
         stats.setOnAction(new EventHandler<ActionEvent>() {
             @Override

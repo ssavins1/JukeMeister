@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import library.SongLibrary;
 import player.SongQueue;
