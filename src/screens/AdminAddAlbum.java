@@ -10,28 +10,29 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-
-
 /**
- * Created by user on 4/14/2016.
+ * Screen where an administrator can add an album to the song library.
  */
 public class AdminAddAlbum extends JukeScreen{
 
-    /**Label for the menu name*/
+    /** Label for the menu name*/
     Label title = new Label("Add Song");
-    /**HBox to help me canter the menu label*/
+    /** HBox to help center the menu label*/
     HBox screenTitleBox = new HBox();
 
     /**Search for a picture to go with the album*/
     Button addPic = new Button("Add Picture");
-    /**Search for a song to add to the databse*/
+    /**Search for a song to add to the database*/
     Button browse = new Button("Browse for Song");
 
+    /** Displays the album art */
     ImageView songArt = new ImageView("sample/images/display.png");
 
-    /**All the components to make the user input field for the title of the song*/
+    /** Label that prompts the administrator to enter the album title */
     Label titleLabel = new Label("Title: ");
+    /** The field where the administrator enters the album title */
     TextField titleField = new TextField();
+    /** The horizontal box where the title is contained */
     HBox titleBox = new HBox();
 
     /**All the components to make the user input field for the name of the band/artist*/
