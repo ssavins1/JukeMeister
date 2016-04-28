@@ -14,6 +14,10 @@ public class Song {
 		this.year = year;
 		this.imageFilename = imageFilename;
 	}
+	
+	public String getFilename(){
+		return "songs\\" + artist + '-' + name + ".mp3";
+	}
 
 	public String getImageFilename(){
 		return imageFilename;

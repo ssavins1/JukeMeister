@@ -23,7 +23,7 @@ public class SongLibraryTester {
 	 */
 	@BeforeClass
 	public void setupFirst(){
-		testOne = new Song("Dream Theater", "Pull Me Under", 1991, 
+		testOne = new Song("Dream Theater", "Pull Me Under", 1992, 
 				"songs\\Dream_Theater-Pull_Me_Under.mp3");
 		
 		testTwo = new Song("Metallica", "One", 1988, 
@@ -31,7 +31,7 @@ public class SongLibraryTester {
 	}
 	
 	/**
-	 * Before each test, resets the song library.
+	 * Before each test, resets the {@link SongLibrary}.
 	 */
 	@Before
 	public void setup(){
