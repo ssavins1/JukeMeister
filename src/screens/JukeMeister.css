@@ -1,7 +1,6 @@
 .root{
     -fx-font-size: 16pt;
     -fx-font-family: "Sans Serif";
-    -fx-base: rgb(132, 145, 47);
     -fx-background:
         linear-gradient(rgb(15,90,240), rgb(10,55,150), rgb(5,25,70), rgb(10,55,150),rgb(15,90,240));
 }
@@ -9,25 +8,39 @@
 .button{
     -fx-background-color:
        linear-gradient(rgb(40,230,240), rgb(15,200,210));
-    -fx-background-radius: 16.4, 15;
-    -fx-background-insets: -1.4, 0;
-    -fx-border-radius: 15;
+            -fx-background-radius: 16.4, 15;
+            -fx-background-insets: -1.4, 0;
+            -fx-border-width: 4px;
+           -fx-border-insets: -1.4, 0;
+           -fx-border-radius: 15;
     -fx-text-fill: rgb(0, 0, 0);
-    -fx-border-color: rgb(0, 0, 70);
+    -fx-border-color: rgb(0, 0, 0);
 }
 
 .button:hover{
         -fx-background-color:
-           linear-gradient(rgb(60,250,260), rgb(35,220,230));
-    -fx-background-radius: 16.4, 15;
-    -fx-background-insets: -1.4, 0;
-    -fx-border-radius: 15;
-    -fx-border-color: rgb(0, 0, 70);
+           linear-gradient(rgb(50,240,250), rgb(25,240,220));
+            -fx-background-radius: 16.4, 15;
+            -fx-background-insets: -1.4, 0;
+           -fx-border-radius: 16.4, 15;
+            -fx-border-width: 4px;
+           -fx-border-insets: -1.4, 0;
+           -fx-border-radius: 15;
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-border-color: rgb(255, 255, 255);
 }
 
+.button:focused:hover{
+            -fx-background-radius: 16.4, 15;
+            -fx-background-insets: -1.4, 0;
+           -fx-border-radius: 16.4, 15;
+            -fx-border-width: 4px;
+           -fx-border-insets: -1.4, 0;
+           -fx-border-radius: 15;
+           }
 .label{
-    -fx-background-color:rgb(0,0,100);
-    -fx-text-fill: rgb(255,255,255);
+ -fx-text-align: center;
+ -fx-text-fill:rgb(255,255,255);
 }
 
 .text-field {
@@ -39,4 +52,18 @@
 
 .text-field .content{
      -fx-background-color: white;
+}
+
+.titleBarLabel{
+    -fx-background-color:rgb(0,0,100);
+    -fx-text-fill: rgb(255,255,255);
+     -fx-text-align: center;
+}
+.titleBarBox{
+    -fx-background-color:rgb(0,0,100);
+}
+
+.scroll-pane{
+    -fx-background:
+    linear-gradient(to bottom right, rgb(100,100,111), rgb(85,85,95));
 }
