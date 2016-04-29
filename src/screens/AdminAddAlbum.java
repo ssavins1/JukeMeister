@@ -121,12 +121,18 @@ public class AdminAddAlbum extends JukeScreen{
         this.setCenter(center);
     }
 
+    /**
+     * Places the album art image in the center of the screen.
+     */
     private void setAlbumCenter(){
         songsOnAlbumCenter.getChildren().add(songsOnAlbum);
         songsOnAlbumCenter.setAlignment(Pos.CENTER);
         albumScrollContent.getChildren().addAll(songsOnAlbumCenter, listOfSongs, addAlbum);
     }
 
+    /**
+     * Add the back button to the left side of the screen.
+     */
     public void setBackButton(){
         this.setLeft(back);
     }

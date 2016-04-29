@@ -23,11 +23,11 @@ public class SongLibraryTester {
 	 */
 	@BeforeClass
 	public void setupFirst(){
-		testOne = new Song("Dream Theater", "Pull Me Under", 1992, 
-				"songs\\Dream_Theater-Pull_Me_Under.mp3");
+		testOne = new Song("Dream Theater", "Pull Me Under", "Images And Words",
+				1992, "songs\\Dream_Theater-Pull_Me_Under.mp3");
 		
-		testTwo = new Song("Metallica", "One", 1988, 
-				"songs\\Metallica-One.mp3");
+		testTwo = new Song("Metallica", "One", "...And Justice For All", 
+				1988, "songs\\Metallica-One.mp3");
 	}
 	
 	/**

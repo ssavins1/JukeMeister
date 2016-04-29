@@ -1,7 +1,5 @@
 package screens;
 
-import org.junit.Test;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -18,10 +16,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import library.Song;
-import static org.junit.Assert.*;
 
 /**
- * Created by user on 4/2/2016.
+ * The main screen of the program.
  */
 public class MainMenu extends JukeScreen{
 
@@ -131,7 +128,7 @@ public class MainMenu extends JukeScreen{
     }
 
     public void setCurrentSong(Song s) {
-        currentlyPlayingImage.setImage(new Image(s.getImageFileName()));
+        currentlyPlayingImage.setImage(new Image(s.getImageFilename()));
 
         currentlyPlayingInfo.setText("Now Playing: "
                 + s.getArtist() + " - " + s.getName());

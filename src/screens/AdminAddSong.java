@@ -23,7 +23,7 @@ public class AdminAddSong extends JukeScreen{
 
     /**Label for the menu name*/
     Label title = new Label("Add Song");
-    /**HBox to help me canter the menu label*/
+    /**HBox to help center the menu label*/
     HBox screenTitleBox = new HBox();
 
     /**Search for a picture to go with the album*/
@@ -31,7 +31,7 @@ public class AdminAddSong extends JukeScreen{
     Label imageFilename = new Label("Selected Image File: None");
     File imageFile = null;
     
-    /**Search for a song to add to the databse*/
+    /**Search for a song to add to the database*/
     Button browse = new Button("Browse for Song");
     Label browseFilename = new Label("Selected: None");
     File selectedFile = null;
