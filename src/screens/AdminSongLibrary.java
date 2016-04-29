@@ -1,5 +1,7 @@
 package screens;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -10,10 +12,10 @@ import javafx.scene.layout.VBox;
 /**
  * Created by Samuel Avins on 4/11/2016.
  */
-public class AdminSongLibary extends JukeScreen {
+public class AdminSongLibrary extends JukeScreen {
 
 
-    Label title = new Label("Song Libary");
+    Label title = new Label("Song Library");
     HBox titleBox = new HBox();
 
     Button addSong = new Button("Add Song");
@@ -28,9 +30,16 @@ public class AdminSongLibary extends JukeScreen {
     VBox centerInner = new VBox();
     HBox center = new HBox();
 
-    public AdminSongLibary() {
+    public AdminSongLibrary() {
         setTitleBar();
         setCenter();
+        
+        back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.backOneScreen();
+            }
+        });
     }
 
     /**========================================

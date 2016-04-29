@@ -1,5 +1,7 @@
 package screens;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
@@ -57,6 +59,13 @@ public class AdminSelectSong extends JukeScreen {
         setLeftComponents();
         setCenterComponents();
         setRightComponents();
+        
+        back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.backOneScreen();
+            }
+        });
 	}
     
     

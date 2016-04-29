@@ -17,7 +17,7 @@ public class ScreenController {
     enum Screens{
         MAIN_MENU(new MainMenu()),
         ADMIN_MENU(new AdminMenu()),
-        ADMIN_SONG_LIBARY(new AdminSongLibary()),
+        ADMIN_SONG_LIBARY(new AdminSongLibrary()),
         ADMIN_ADD_SONG(new AdminAddSong()),
         ADMIN_ADD_ALBUM(new AdminAddAlbum()),
         ADMIN_CREDIT_CONTROL(new AdminCreditControl()),

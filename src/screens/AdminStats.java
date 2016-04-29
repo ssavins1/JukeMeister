@@ -1,5 +1,7 @@
 package screens;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -46,6 +48,13 @@ public class AdminStats extends JukeScreen {
 	public AdminStats() {
 		setTitleBar();
         setCenter();
+        
+        back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.backOneScreen();
+            }
+        });
 	}
     
 	/**========================================

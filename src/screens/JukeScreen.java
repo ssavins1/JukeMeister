@@ -10,7 +10,6 @@ import org.junit.Test;
  */
 public class JukeScreen extends BorderPane implements JukeScreenIF {
     @Override
-    @Test(timeout = 1000)
     public Parent getScreen() {
         return this;
     }

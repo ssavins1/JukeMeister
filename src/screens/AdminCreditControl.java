@@ -1,5 +1,7 @@
 package screens;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -24,12 +26,12 @@ public class AdminCreditControl extends JukeScreen {
     HBox toggleFreeBox = new HBox();
 
     /**Fields require for the admin to set the cost of each song*/
-    Label songCost = new Label("Cost per Song: ");
+    Label songCost = new Label("Cost per song: ");
     TextField songCostField = new TextField();
     HBox songCostBox = new HBox();
 
     /**Allows the admin to set a free bonus song after each x amount*/
-    Label freeSongCost = new Label("Cost per Song: ");
+    Label freeSongCost = new Label("Amount until bonus song: ");
     TextField freeSongCostField = new TextField();
     HBox freeSongCostBox = new HBox();
 
@@ -49,6 +51,13 @@ public class AdminCreditControl extends JukeScreen {
 
     public void setBack(){
         this.setLeft(back);
+        
+        back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.backOneScreen();
+            }
+        });
     }
 
     /**========================================

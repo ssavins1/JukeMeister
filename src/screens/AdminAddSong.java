@@ -178,11 +178,11 @@ public class AdminAddSong extends JukeScreen{
     private void setBackButton(){
         this.setLeft(back);
         
-        back.setOnAction(new EventHandler<ActionEvent>(){
-			@Override
-			public void handle(ActionEvent arg0) {
-				// TODO Go to AdminMenu
-			}
+        back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ScreenController.backOneScreen();
+            }
         });
     }
 
