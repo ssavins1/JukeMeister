@@ -146,6 +146,9 @@ public class AdminAddAlbum extends JukeScreen{
         });
     }
 
+    /**
+     * 
+     */
     @Override
     public Parent getScreen() {
         return null;

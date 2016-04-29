@@ -60,7 +60,8 @@ public class AdminCreditControl extends JukeScreen {
         });
     }
 
-    /**========================================
+    /**
+     * ========================================
      *  Sets all the user input fields and
      *  buttons to the center of the screen.
      *========================================
